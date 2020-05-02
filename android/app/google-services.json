@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "7493259925",
+    "firebase_url": "https://minihack-pepe.firebaseio.com",
+    "project_id": "minihack-pepe",
+    "storage_bucket": "minihack-pepe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:7493259925:android:2d88ef3dad992501e6819c",
+        "android_client_info": {
+          "package_name": "com.a4nirudh.minihackpepeunion"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "7493259925-acdfjtklavud9lqf3h2n1r4707rrde0c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.a4nirudh.minihackpepeunion",
+            "certificate_hash": "65a5da71b40800ef93720aa44834bd0b2623e0e6"
+          }
+        },
+        {
+          "client_id": "7493259925-6bet4u55g2m221o5p84m7gf8o2k29hav.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVxDumf1tF-J8oADzAJIe18IpSmzi8oOw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "7493259925-6bet4u55g2m221o5p84m7gf8o2k29hav.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
