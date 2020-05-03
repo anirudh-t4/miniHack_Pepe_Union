@@ -30,9 +30,7 @@ dev_dependencies:
   firebase_auth: ^0.16.0
   webview_flutter: ^0.3.19+9
   google_sign_in: ^4.4.4
-  bottom_navy_bar: ^5.4.0
-  http: ^0.12.0+2
-  flutter_inappbrowser: ^1.2.1
+  theme_provider: ^0.3.3
 
 
 # For information on the generic Dart part of this file, see the
@@ -48,8 +46,6 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-      - assets/cric.jpg
-      - assets/foot.jpg
       - assets/emi.jpg
       - assets/bundesliga.png
       - assets/epl.jpg
@@ -69,8 +65,10 @@ flutter:
       - assets/mut.png
       - assets/psg.png
       - assets/rma.png
-      - assets/splash.jpg
+      - assets/splash.png
       - assets/google.jpg
+      - assets/ch.png
+      - assets/fh.png
   #  - images/a_dot_burr.jpeg
   #  - images/a_dot_ham.jpeg
 
