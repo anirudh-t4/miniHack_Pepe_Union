@@ -16,6 +16,8 @@ https://drive.google.com/open?id=1JooBooWR6KQkoiaRdcH0sSpjeitqRMxG
 
 The link to video:
 
+https://drive.google.com/open?id=1LUorLI8ZoVkM7I8Mrz1zWQjTBEDP-7lP
+
 
 Special Features:
 
