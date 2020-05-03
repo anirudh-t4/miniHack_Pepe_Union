@@ -22,7 +22,7 @@ class StartState extends State<SplashScreen> {
   }
 
   startTimer() async {
-    var duration = Duration(seconds: 3);
+    var duration = Duration(seconds: 2);
     return new Timer(duration, route);
   }
 
@@ -34,15 +34,19 @@ class StartState extends State<SplashScreen> {
   }
 
   initScreen(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
+    var height = MediaQuery.of(context).size.height;
 
-    return Scaffold(
-        body: Container(
+    return Scaffold(backgroundColor: Colors.black,
+        body: Center(
+          child: Container(height: height/2,width: width/1.5,
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage("assets/emi.jpg"),
+              image: AssetImage("assets/splash.png"),
               fit: BoxFit.cover,
             ),
           ),
+        ),
         )
     );
   }

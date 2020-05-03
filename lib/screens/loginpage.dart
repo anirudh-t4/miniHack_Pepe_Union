@@ -31,76 +31,81 @@ class _LoginPageState extends State<LoginPage> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: SafeArea(
-          child: Scaffold(
+          child: Scaffold(backgroundColor: Colors.black,
               body: ListView(
                 children: <Widget>[
-                  Container(height: height,width: width,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage("assets/emi.jpg"),
-                        fit: BoxFit.cover,
+                  Padding(
+                    padding: const EdgeInsets.only(top: 20),
+                    child: Center(
+                      child: Container(height: height/2.5,width: width/1.5,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage("assets/splash.png"),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
                       ),
                     ),
-                    child: Center(
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          SizedBox(height: width/3),
-                          Text('Enter Your Mobile Number To Proceed',
-                            style: TextStyle(color: Colors.white,fontSize: width/22,fontWeight: FontWeight.bold),),
-                          Form(
-                              key: formKey,
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget>[
-                                  Padding(
-                                    padding: const EdgeInsets.only(left: 40,right: 40),
+                  ),
+                  Center(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        SizedBox(height: width/8),
+                        Text('Enter Your Mobile Number To Proceed',
+                          style: TextStyle(color: Colors.white,fontSize: width/22,fontWeight: FontWeight.bold),),
+                        Form(
+                            key: formKey,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 40,right: 40),
+                                  child: Card(
+                                    child: TextFormField(
+                                      keyboardType: TextInputType.phone,
+                                      decoration: InputDecoration(hintText: 'Mobile Number',hintStyle: TextStyle(fontWeight: FontWeight.bold),),
+                                      initialValue: '+91',
+                                      onChanged: (val) {
+                                        setState(() {
+                                          this.phoneNo = val;
+                                        });
+                                      },
+                                    ),
+                                  ),
+                                ),
+                                codeSent ? Padding(
+                                    padding: EdgeInsets.only(left: 60.0, right: 60.0),
                                     child: Card(
                                       child: TextFormField(
                                         keyboardType: TextInputType.phone,
-                                        decoration: InputDecoration(hintText: 'Mobile Number',hintStyle: TextStyle(fontWeight: FontWeight.bold),),
-                                        initialValue: '+91',
+                                        decoration: InputDecoration(hintText: 'Enter OTP',hintStyle: TextStyle(fontWeight: FontWeight.bold)),
                                         onChanged: (val) {
                                           setState(() {
-                                            this.phoneNo = val;
+                                            this.smsCode = val;
                                           });
                                         },
                                       ),
-                                    ),
-                                  ),
-                                  codeSent ? Padding(
-                                      padding: EdgeInsets.only(left: 60.0, right: 60.0),
-                                      child: Card(
-                                        child: TextFormField(
-                                          keyboardType: TextInputType.phone,
-                                          decoration: InputDecoration(hintText: 'Enter OTP',hintStyle: TextStyle(fontWeight: FontWeight.bold)),
-                                          onChanged: (val) {
-                                            setState(() {
-                                              this.smsCode = val;
-                                            });
-                                          },
-                                        ),
-                                      )) : Container(),
-                                  Padding(
-                                      padding: EdgeInsets.only(left: 120.0, right: 120.0),
-                                      child: Card(color: Colors.deepOrange,
-                                        child: RaisedButton(color: Colors.deepOrange,
-                                            child: Center(child: codeSent ? Text('Verify',
-                                              style: TextStyle(color: Colors.white,fontSize: width/22),):Text('Get OTP', style: TextStyle(color: Colors.white,fontSize: width/22),)),
-                                            onPressed: () {
-                                              codeSent ? AuthService().signInWithOTP(smsCode, verificationId):verifyPhone(phoneNo);
-                                            }),
-                                      ))
-                                ],
-                              )),SizedBox(height: width/12,),
-                          Text('Or Sign In With',
-                            style: TextStyle(color: Colors.white,fontSize: width/22,fontWeight: FontWeight.bold),),
-                          SizedBox(height: width/30,),
-                          _signInButton(),
-                        ],
-                      ),
+                                    )) : Container(),
+                                Padding(
+                                    padding: EdgeInsets.only(left: 120.0, right: 120.0),
+                                    child: Card(color: Colors.deepOrange,
+                                      child: RaisedButton(color: Colors.deepOrange,
+                                          child: Center(child: codeSent ? Text('Verify',
+                                            style: TextStyle(color: Colors.white,fontSize: width/22),):Text('Get OTP', style: TextStyle(color: Colors.white,fontSize: width/22),)),
+                                          onPressed: () {
+                                            codeSent ? AuthService().signInWithOTP(smsCode, verificationId):verifyPhone(phoneNo);
+                                          }),
+                                    ))
+                              ],
+                            )),SizedBox(height: width/12,),
+                        Text('Or Sign In With',
+                          style: TextStyle(color: Colors.white,fontSize: width/22,fontWeight: FontWeight.bold),),
+                        SizedBox(height: width/30,),
+                        _signInButton(),
+                      ],
                     ),
                   )
                 ],

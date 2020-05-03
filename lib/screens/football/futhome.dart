@@ -1,7 +1,5 @@
 
 import 'dart:convert';
-
-import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:minihackpepeunion/screens/football/leagues.dart';
@@ -11,6 +9,7 @@ import 'package:http/http.dart' as http;
 
 import 'clubs.dart';
 import 'highlights.dart';
+import 'package:theme_provider/theme_provider.dart';
 
 
 
@@ -22,64 +21,47 @@ class fh extends StatefulWidget {
 class _fhState extends State<fh> {
 
 
-  @override
-  void initState() {
-    super.initState();
-    _pageController = PageController();
-  }
-
   int _currentIndex = 0;
-  PageController _pageController;
+  final List<Widget> _children = [
+    ThemeConsumer(child: sco()),
+    ThemeConsumer(child: high()),
+    ThemeConsumer(child: lea()),
+    ThemeConsumer(child: clu()),
 
-  @override
-  void dispose() {
-    _pageController.dispose();
-    super.dispose();
-  }
+  ];
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
-      body: SizedBox.expand(
-        child: PageView(
-          controller: _pageController,
-          onPageChanged: (index) {
-            setState(() => _currentIndex = index);
-          },
-          children: <Widget>[
-            sco(),
-            high(),
-            lea(),
-            clu()
-          ],
-        ),
-      ),
-      bottomNavigationBar: BottomNavyBar(
-        selectedIndex: _currentIndex,
-        onItemSelected: (index) {
-          setState(() => _currentIndex = index);
-          _pageController.jumpToPage(index);
-        },
-        items: <BottomNavyBarItem>[
-          BottomNavyBarItem(
-              title: Text('Scores'),
-              icon: Icon(Icons.score)
+      body: _children[_currentIndex],
+      bottomNavigationBar: BottomNavigationBar(
+        onTap: onTabTapped,
+        currentIndex: _currentIndex,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.score,color: Colors.blue,),
+            title: Text('Scores',style: TextStyle(color: Colors.blue),),
           ),
-          BottomNavyBarItem(
-              title: Text('Highlights'),
-              icon: Icon(Icons.history)
+          BottomNavigationBarItem(
+            icon: Icon(Icons.history,color: Colors.blue,),
+            title: Text('Highlights',style: TextStyle(color: Colors.blue),),
           ),
-          BottomNavyBarItem(
-              title: Text('Leagues'),
-              icon: Icon(Icons.art_track)
+          BottomNavigationBarItem(
+              icon: Icon(Icons.art_track,color: Colors.blue,),
+              title: Text('Leagues',style: TextStyle(color: Colors.blue),)
           ),
-          BottomNavyBarItem(
-              title: Text('Clubs'),
-              icon: Icon(Icons.flag)
-          ),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.flag,color: Colors.blue,),
+              title: Text('Clubs',style: TextStyle(color: Colors.blue),)
+          )
         ],
       ),
     );
+  }
+
+  void onTabTapped(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
   }
 }

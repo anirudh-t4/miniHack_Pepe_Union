@@ -1,13 +1,12 @@
 
 import 'dart:convert';
-
-import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:minihackpepeunion/screens/football/leagues.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:http/http.dart' as http;
 
+import '../home.dart';
 import 'clubs.dart';
 import 'highlights.dart';
 
@@ -21,7 +20,13 @@ class _scoState extends State<sco> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: AppBar(leading: ListTile(
+        title: Icon(Icons.home),
+        onTap: () {
+          Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) {return ha();}), ModalRoute.withName('/'));
+        },
+
+      ),
         title: Text(
             '   Live Scores'
         ),
@@ -33,3 +38,5 @@ class _scoState extends State<sco> {
     );
   }
 }
+
+

@@ -1,44 +1,20 @@
-
 import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:minihackpepeunion/screens/football/leagues.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:http/http.dart' as http;
 
 import '../home.dart';
 
-
-class high extends StatefulWidget {
+class tran extends StatefulWidget {
   @override
-  _highState createState() => _highState();
+  _tranState createState() => _tranState();
 }
 
-class _highState extends State<high> {
-  List data;
-  dynamic u1;
-  dynamic u2;
-
-
-  Future<void> getData() async {
-    http.Response response = await http.get('https://www.scorebat.com/video-api/v1/');
-    List data = jsonDecode(response.body);
-    setState(() {
-      u1 = data[0]['title'];
-      u2 = data[0]['side1']['url'];
-
-    });
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    getData();
-  }
-
+class _tranState extends State<tran> {
   @override
   Widget build(BuildContext context) {
-
-
     return Scaffold(
       appBar: AppBar(
         leading: ListTile(
@@ -48,12 +24,13 @@ class _highState extends State<high> {
           },
 
         ),
-        title: Text('HighLights'),
+        title: Text(
+            'Team Rankings'
+        ),
       ),
-      body: WebView(
-        initialUrl: 'https://www.scorebat.com/embed/',
+      body: const WebView(
+        initialUrl: 'https://www.espncricinfo.com/rankings/content/page/211271.html',
         javascriptMode: JavascriptMode.unrestricted,
-
       ),
     );
   }
