@@ -10,13 +10,12 @@ and different established teams in respective sports which any sport fan would c
 
 Displaying all these data in such short time was challenging for us so we took help from various api's.
 
-Then link to app is:
+The link to app is:
 
 https://drive.google.com/open?id=1JooBooWR6KQkoiaRdcH0sSpjeitqRMxG
 
-if this link is not accessible,we've stored the apk in the 'apk' folder above.
+The link to video:
 
-The video presentation of the project is stored in the 'video' folder above.
 
 Special Features:
 
